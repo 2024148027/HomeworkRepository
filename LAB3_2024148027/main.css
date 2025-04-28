@@ -1,0 +1,254 @@
+/* 기본 설정 */
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+/* 헤더 */
+header {
+    overflow: hidden;
+    background-color: #eee;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.slide-text {
+    white-space: nowrap;
+    font-size: 24px;
+    animation: slide 2s linear forwards;
+    margin-left: 20px;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* 네비게이션 */
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #ddd;
+    border: 2px solid black;
+    margin-top: 10px;
+}
+
+.nav-bar a {
+    color: black;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.nav-bar a:hover {
+    background-color: #bbb;
+}
+
+/* 컨텐츠 */
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.notabout {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.movies-title {
+    display: flex;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* 영화 전체 묶음 */
+.rows {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* 영화 2개 묶는 줄 */
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    height: 200px;
+    gap: 20px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+/* 영화 포스터 하나 */
+.movie {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    overflow: visible;
+}
+
+.movie img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 2s;
+}
+
+.movie:hover img {
+    transform: scale(2.5);
+}
+
+/* About 영역 */
+.about {
+    padding: 20px;
+    border: 2px solid black;
+    text-align: justify;
+}
+
+
+.movie-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 2s;
+    text-shadow: 2px 2px 4px black;
+}
+
+.movie:hover .movie-text {
+    opacity: 1;
+}
+
+/* 로그인, 회원가입 페이지 */
+h1 {
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.link {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.form-box {
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input, select {
+    width: 400px;
+    padding: 5px;
+    margin-top: 3px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input[type="radio"] {
+    width: auto;
+}
+
+button {
+    width: 45%;
+    padding: 10px;
+    font-size: 14px;
+    margin: 10px 2%;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.signup-btn {
+    background-color: #4CAF50;
+}
+
+.login-btn {
+    background-color: #4CAF50;
+}
+
+.cancel-btn {
+    background-color: red;
+}
+
+
+/* 반응형 설정 */
+/* 801px 이상 기본 레이아웃 (기존 그대로) */
+
+/* 481px ~ 800px */
+@media (min-width: 481px) and (max-width: 800px) {
+    .nav-bar {
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .rows {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .row {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 40%;
+    }
+
+}
+
+/* ~480px */
+@media (max-width: 480px) {
+    .nav-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rows {
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .row {
+        flex-direction: row;
+        justify-content: center;
+        width: 90%;
+    }
+
+}
